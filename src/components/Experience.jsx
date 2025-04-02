@@ -1,19 +1,35 @@
+import DisplayInput from "./DisplayInput.jsx";
 // import "./styles/Experience.css";
 
 function Experience() {
   return (
     <div className="experience-container">
       <h1>Experience</h1>
-      <label htmlFor="company">Company:</label>
-      <input type="text" id="company" name="company" />
-      <label htmlFor="position">Position:</label>
-      <input type="text" id="position" name="position" />
-      <label htmlFor="responsibilities">Responsibilities:</label>
-      <input type="text" id="responsibilities" name="responsibilities" />
-      <label htmlFor="date-started">Date started:</label>
-      <input type="text" id="date-started" name="date-started" />
-      <label htmlFor="date-ended">Date ended:</label>
-      <input type="text" id="date-ended" name="date-ended" />
+      <DisplayInput label="Company:" type="text" id="company" name="company" />
+      <DisplayInput
+        label="Position:"
+        type="text"
+        id="position"
+        name="position"
+      />
+      <DisplayInput
+        label="Responsibilities:"
+        id="responsibilities"
+        name="responsibilities"
+        textarea={true}
+      />
+      <DisplayInput
+        label="Date started:"
+        type="date"
+        id="date-started"
+        name="date-started"
+      />
+      <DisplayInput
+        label="Date ended:"
+        type="date"
+        id="date-ended"
+        name="date-ended"
+      />
     </div>
   );
 }
