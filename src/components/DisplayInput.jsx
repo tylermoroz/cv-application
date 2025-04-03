@@ -3,11 +3,18 @@ import { useState } from "react";
 function DisplayInput({ label, type = "text", id, name, textarea = false }) {
   const [inputValue, setInputValue] = useState("");
   const [submittedValue, setSubmittedValue] = useState("");
+  const [buttonFunction, setButtonFunction] = useState("Submit");
 
   const handleInput = (e) => {
     e.preventDefault();
-    setSubmittedValue(inputValue);
-    e.target.style.display = "none";
+    if (buttonFunction === "Submit") {
+      setSubmittedValue(inputValue);
+      e.target.children[1].style.display = "none";
+      setButtonFunction("Edit");
+    } else if (buttonFunction === "Edit") {
+      e.target.children[1].style.display = "block";
+      setButtonFunction("Submit");
+    }
   };
 
   const InputField = textarea ? (
@@ -32,7 +39,7 @@ function DisplayInput({ label, type = "text", id, name, textarea = false }) {
       <form onSubmit={handleInput}>
         <label htmlFor={id}>{label}</label>
         {InputField}
-        <button type="submit">Submit</button>
+        <button type="submit">{buttonFunction}</button>
       </form>
       <p>{submittedValue}</p>
     </div>
