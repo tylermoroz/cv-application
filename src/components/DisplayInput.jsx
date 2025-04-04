@@ -1,47 +1,24 @@
-import { useState } from "react";
-
-function DisplayInput({ label, type = "text", id, name, textarea = false }) {
-  const [inputValue, setInputValue] = useState("");
-  const [submittedValue, setSubmittedValue] = useState("");
-  const [buttonFunction, setButtonFunction] = useState("Submit");
-
-  const handleInput = (e) => {
-    e.preventDefault();
-    if (buttonFunction === "Submit") {
-      setSubmittedValue(inputValue);
-      e.target.children[1].style.display = "none";
-      setButtonFunction("Edit");
-    } else if (buttonFunction === "Edit") {
-      e.target.children[1].style.display = "block";
-      setButtonFunction("Submit");
-    }
-  };
-
+function DisplayInput({
+  label,
+  type = "text",
+  id,
+  name,
+  textarea = false,
+  value,
+  onChange,
+  submittedValue,
+  isEditing,
+}) {
   const InputField = textarea ? (
-    <textarea
-      id={id}
-      name={name}
-      value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)}
-    />
+    <textarea id={id} name={name} value={value} onChange={onChange} />
   ) : (
-    <input
-      type={type}
-      id={id}
-      name={name}
-      value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)}
-    />
+    <input type={type} id={id} name={name} value={value} onChange={onChange} />
   );
 
   return (
     <div>
-      <form onSubmit={handleInput}>
-        <label htmlFor={id}>{label}</label>
-        {InputField}
-        <button type="submit">{buttonFunction}</button>
-      </form>
-      <p>{submittedValue}</p>
+      <label htmlFor={id}>{label}</label>
+      {isEditing ? InputField : <p>{submittedValue}</p>}
     </div>
   );
 }
