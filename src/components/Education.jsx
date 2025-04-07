@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DisplayInput from "./DisplayInput.jsx";
-// import "./styles/Education.css";
+import "../styles/Education.css";
 
 function Education() {
   const [formValues, setFormValues] = useState({

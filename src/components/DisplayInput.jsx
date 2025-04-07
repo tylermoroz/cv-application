@@ -1,3 +1,5 @@
+import "../styles/DisplayInput.css";
+
 function DisplayInput({
   label,
   type = "text",
@@ -16,7 +18,7 @@ function DisplayInput({
   );
 
   return (
-    <div>
+    <div className="input-field">
       <label htmlFor={id}>{label}</label>
       {isEditing ? InputField : <p>{submittedValue}</p>}
     </div>

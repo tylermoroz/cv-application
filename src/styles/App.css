@@ -1,0 +1,12 @@
+.app-container {
+  width: 100%;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  gap: 1rem;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+}

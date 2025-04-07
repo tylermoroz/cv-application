@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DisplayInput from "./DisplayInput.jsx";
-// import "./styles/Experience.css";
+import "../styles/Experience.css";
 
 function Experience() {
   const [formValues, setFormValues] = useState({
