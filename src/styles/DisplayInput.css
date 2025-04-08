@@ -1,12 +1,23 @@
 .input-field {
   display: flex;
   flex-direction: column;
+  padding: 0.1rem;
 }
 
 .input-field textarea {
   height: 7em;
+  font-size: 1.2em;
 }
 
 .input-field input {
-  height: 2em;
+  font-size: 1.2em;
+}
+
+.input-field label {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.input-field p {
+  font-size: 1.2em;
+  max-width: 25em;
 }
